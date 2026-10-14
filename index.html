@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Harsha R – Full-Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f2ff; --tile:#ffffff; --tile2:#ebe7ff; --ink:#1a1530; --muted:#5d567a; --line:#d9d3f5;
+  --a:#6d3df5; --b:#e0359a; --glow1:rgba(109,61,245,.22); --glow2:rgba(224,53,154,.16);
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0b0a14; --tile:#141225; --tile2:#1c1838; --ink:#f1eeff; --muted:#a39fc4; --line:#2b2650; --a:#9b7bff; --b:#ff5cb8; --glow1:rgba(155,123,255,.28); --glow2:rgba(255,92,184,.18);}
+}
+:root[data-theme="dark"]{--bg:#0b0a14; --tile:#141225; --tile2:#1c1838; --ink:#f1eeff; --muted:#a39fc4; --line:#2b2650; --a:#9b7bff; --b:#ff5cb8; --glow1:rgba(155,123,255,.28); --glow2:rgba(255,92,184,.18);}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:1rem}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.6 "DM Sans",system-ui,sans-serif;position:relative;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(40rem 30rem at 85% -5%,var(--glow1),transparent 70%),radial-gradient(34rem 28rem at -5% 40%,var(--glow2),transparent 70%)}
+a{color:var(--a)}
+a:focus-visible{outline:3px solid var(--a);outline-offset:3px}
+.wrap{max-width:70rem;margin:0 auto;padding:0 1.25rem 2rem}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;gap:1rem;flex-wrap:wrap}
+.logo{font:700 1.2rem "Space Grotesk",sans-serif}
+nav ul{display:flex;gap:.3rem;list-style:none;margin:0;padding:.3rem;border:1px solid var(--line);border-radius:99px;background:var(--tile)}
+nav a{display:block;padding:.35rem .8rem;border-radius:99px;color:var(--ink);text-decoration:none;font-weight:500;font-size:.95rem}
+nav a:hover{background:var(--tile2)}
+.tog{font:inherit;font-weight:500;font-size:.9rem;padding:.4rem .9rem;border-radius:99px;border:1px solid var(--line);background:var(--tile);color:var(--ink);cursor:pointer}
+.tog:hover{background:var(--tile2)}
+.tog:focus-visible{outline:3px solid var(--a);outline-offset:3px}
+h1,h2,h3{font-family:"Space Grotesk",sans-serif;margin:0}
+h1{font-size:clamp(3.2rem,10vw,6.6rem);line-height:.92;letter-spacing:-.04em;background:linear-gradient(100deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.1em;margin-bottom:1rem}
+h3{font-size:1.3rem;font-weight:700;letter-spacing:-.01em;margin-bottom:.4rem}
+p{margin:0 0 .8rem}
+.muted{color:var(--muted)}
+.sec{margin-top:3.5rem}
+.st{font-size:1.9rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1rem;display:flex;align-items:center;gap:.8rem}
+.st::after{content:"";flex:1;height:2px;background:linear-gradient(90deg,var(--a),transparent)}
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem}
+.t{background:var(--tile);border:1px solid var(--line);border-radius:1.5rem;padding:1.5rem;position:relative;overflow:hidden;transition:border-color .2s,transform .2s}
+.t:hover{border-color:var(--a);transform:translateY(-3px)}
+.s6{grid-column:span 6}.s3{grid-column:span 3}.s2{grid-column:span 2}
+.hero p{font-size:1.15rem;max-width:36rem;color:var(--muted)}
+.badge{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--line);background:var(--tile2);border-radius:99px;padding:.25rem .9rem;font-weight:500;font-size:.95rem;margin-bottom:1rem}
+.badge i{width:.6rem;height:.6rem;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.25)}
+.btns{display:flex;gap:.6rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.65rem 1.2rem;border-radius:99px;font-weight:500;text-decoration:none;border:1.5px solid var(--a);color:var(--a)}
+.btn.main{background:linear-gradient(100deg,var(--a),var(--b));border-color:transparent;color:#fff}
+.btn:hover{filter:brightness(1.1)}
+.feat{background:linear-gradient(150deg,var(--tile2),var(--tile))}
+.when{font:500 .9rem "Space Grotesk",sans-serif;color:var(--muted);margin-bottom:.5rem}
+.tags{display:flex;gap:.4rem;flex-wrap:wrap;list-style:none;margin:0 0 .8rem;padding:0}
+.tags li{background:var(--tile2);border-radius:99px;padding:.1rem .7rem;font-size:.85rem}
+.links{display:flex;gap:.9rem;flex-wrap:wrap;font-weight:500;margin:0}
+.rows{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1rem;margin-bottom:1.2rem}
+.rows b{display:block;font:500 .9rem "Space Grotesk",sans-serif;color:var(--muted);margin-bottom:.2rem}
+.marq{overflow:hidden;border-top:1px solid var(--line);padding-top:1rem;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.track{display:flex;gap:.6rem;width:max-content;animation:slide 36s linear infinite}
+.track span{border:1px solid var(--line);background:var(--tile2);border-radius:99px;padding:.3rem 1rem;white-space:nowrap}
+@keyframes slide{to{transform:translateX(-50%)}}
+.contact{display:flex;justify-content:space-between;align-items:center;gap:1.2rem;flex-wrap:wrap;background:linear-gradient(100deg,var(--a),var(--b));border:0;color:#fff}
+.contact h3{font-size:1.8rem}
+.contact p{margin:.3rem 0 0;opacity:.92}
+.contact .btn{background:#fff;color:#2a1760;border-color:#fff}
+footer{text-align:center;color:var(--muted);padding:2rem 0 0;font-size:.9rem}
+@media (max-width:52rem){.s3,.s2{grid-column:span 6}nav ul{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.track{animation:none}.t{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <span class="logo">harsha.dev</span>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#background">Background</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://www.linkedin.com/in/harsha-engineer9353">LinkedIn</a></li>
+      <li><a href="https://github.com/harsha9353-34">GitHub</a></li>
+      <li><a href="https://drive.google.com/file/d/1s6fTULK5a6xuUelh7CEoSRoxHn7GbkOO/view?usp=drive_link">Resume</a></li>
+    </ul>
+    <button class="tog" id="tog" type="button">Dark mode</button>
+  </nav>
+
+  <header class="t hero">
+    <span class="badge"><i></i>Open to work</span>
+    <h1>Harsha R</h1>
+    <p>Computer science student with development internship experience at StaxTech in application deployment and full-stack development. I'm actively looking for work and graduating July 2027.</p>
+    <div class="btns">
+      <a class="btn main" href="#projects">See my projects</a>
+      <a class="btn" href="https://drive.google.com/file/d/1s6fTULK5a6xuUelh7CEoSRoxHn7GbkOO/view?usp=drive_link">View resume</a>
+      <a class="btn" href="https://github.com/harsha9353-34">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/harsha-engineer9353">LinkedIn</a>
+    </div>
+  </header>
+
+  <section class="sec" id="about">
+    <h2 class="st">About me</h2>
+    <div class="bento">
+      <article class="t s3">
+        <h3>Who I am</h3>
+        <p class="muted">I'm a computer science student who builds web apps and machine learning projects. I enjoy making software that people can actually use.</p>
+      </article>
+      <article class="t s3">
+        <h3>Software development</h3>
+        <div class="rows" style="grid-template-columns:1fr;gap:.7rem;margin-bottom:0">
+          <div><b>Full-stack development</b>MERN stack, and Java with Spring Boot</div>
+          <div><b>Databases</b>Database-driven applications with MySQL and MongoDB</div>
+          <div><b>Deployment</b>Shipping web apps, including my quiz app on Vercel</div>
+          <div><b>Workflow</b>Collaborative development with Git and GitHub</div>
+          <div><b>Applied machine learning</b>Python, Scikit-Learn and Streamlit</div>
+          <div><b>Problem solving</b>Competitive coding on LeetCode and Codeforces</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="background">
+    <h2 class="st">Experience and education</h2>
+    <div class="bento">
+      <article class="t s3">
+        <p class="when">July 2025</p>
+        <h3>Development Intern</h3>
+        <p class="muted">StaxTech, Bengaluru. Application deployment and full-stack development (MERN).</p>
+      </article>
+      <article class="t s3">
+        <p class="when">Graduating July 2027</p>
+        <h3>B.Tech, Computer Science and Engineering</h3>
+        <p class="muted">Presidency University, Bengaluru.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="projects">
+    <h2 class="st">Projects</h2>
+    <div class="bento">
+      <article class="t s6 feat">
+        <h3>MindBridge: Mental Health Awareness Web Application</h3>
+        <p>A child-centered platform that educates users about common mental health topics, healthy coping habits and where to find support, with early well-being screening, tracking and referral. Children check in with emoji moods and an optional journal; caregivers get a dashboard; crisis referral pathways are built in. Machine learning stratifies risk and NLP scores the tone of journal entries, all in a calm, accessible, responsive interface.</p>
+        <ul class="tags"><li>React 18</li><li>Vite</li><li>Recharts</li><li>FastAPI</li><li>SQLite</li><li>scikit-learn</li><li>VADER</li><li>Streamlit</li></ul>
+        <p class="links"><a href="https://github.com/Harsha9353-34/Mental-Health-and-Well-being-Surveillance-Assessment-and-Tracking-Solution-Among-Children">View code on GitHub</a></p>
+      </article>
+      <article class="t s2">
+        <h3>Form Builder Application</h3>
+        <p class="muted">A web application for creating and managing customizable forms with dynamic input fields, with interactive form-creation workflows and structured data handling for reusable configurations.</p>
+        <ul class="tags"><li>Java</li><li>Spring Boot</li><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+        <p class="links"><a href="https://github.com/Harsha9353-34/FormBuilderApplication">View code on GitHub</a></p>
+      </article>
+      <article class="t s2">
+        <h3>Online Quiz Web Application</h3>
+        <p class="muted">An interactive quiz platform with secure user login, a timer, question navigation, real-time scoring and result reporting. Deployed on Vercel.</p>
+        <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Vercel</li></ul>
+        <p class="links"><a href="https://quizwebsite-iota.vercel.app/">Open live app</a></p>
+      </article>
+      <article class="t s2">
+        <h3>Student Performance Prediction</h3>
+        <p class="muted">A linear regression model that predicts student academic performance, delivered as an interactive Streamlit dashboard with data visualizations and a saved Joblib model.</p>
+        <ul class="tags"><li>Python</li><li>Scikit-Learn</li><li>Pandas</li><li>Streamlit</li><li>Matplotlib</li><li>Joblib</li></ul>
+        <p class="links"><a href="https://student-performance-prediction-5upm7mf5owxekux7wsrsrf.streamlit.app/">Open live app</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="certifications">
+    <h2 class="st">Certifications</h2>
+    <div class="bento">
+      <article class="t s6">
+        <h3>HackerRank skill certificates</h3>
+        <p class="muted">Click a certificate to verify it on HackerRank.</p>
+        <ul class="tags"><li><a href="https://www.hackerrank.com/certificates/455e3196106a">Java (Basic)</a></li><li><a href="https://www.hackerrank.com/certificates/c7e681204bdb">Node.js (Intermediate)</a></li><li><a href="https://www.hackerrank.com/certificates/d0b7cec7b759">SQL (Advanced)</a></li><li><a href="https://www.hackerrank.com/certificates/3608a1001c61">Software Engineer</a></li></ul>
+        <p class="links"><a href="https://www.linkedin.com/in/harsha-engineer9353">See credentials on LinkedIn</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="skills">
+    <h2 class="st">Skills</h2>
+    <div class="bento">
+      <article class="t s6">
+        <div class="rows">
+          <div><b>Languages</b>Java, Python, C, JavaScript, HTML, CSS</div>
+          <div><b>Frameworks and libraries</b>Node.js, Spring Boot, Pandas, Scikit-Learn, Streamlit, Matplotlib</div>
+          <div><b>Databases</b>MySQL, MongoDB</div>
+          <div><b>Tools</b>Git, GitHub, VS Code, Vercel</div>
+        </div>
+        <div class="marq" aria-hidden="true"><div class="track"><span>Java</span><span>Python</span><span>C</span><span>JavaScript</span><span>HTML</span><span>CSS</span><span>Node.js</span><span>Spring Boot</span><span>Pandas</span><span>Scikit-Learn</span><span>Streamlit</span><span>Matplotlib</span><span>MySQL</span><span>MongoDB</span><span>Git</span><span>GitHub</span><span>VS Code</span><span>Vercel</span><span>Java</span><span>Python</span><span>C</span><span>JavaScript</span><span>HTML</span><span>CSS</span><span>Node.js</span><span>Spring Boot</span><span>Pandas</span><span>Scikit-Learn</span><span>Streamlit</span><span>Matplotlib</span><span>MySQL</span><span>MongoDB</span><span>Git</span><span>GitHub</span><span>VS Code</span><span>Vercel</span></div></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="contact">
+    <h2 class="st">Contact</h2>
+    <div class="t contact">
+      <div>
+        <h3>I'm open to work</h3>
+        <p>I'm actively looking for my next opportunity. Email or message me on LinkedIn.</p>
+      </div>
+      <div class="btns">
+        <a class="btn" href="https://drive.google.com/file/d/1s6fTULK5a6xuUelh7CEoSRoxHn7GbkOO/view?usp=drive_link">View resume</a>
+        <a class="btn" href="mailto:harsha9353140091@gmail.com">Email me</a>
+        <a class="btn" href="https://www.linkedin.com/in/harsha-engineer9353">Connect on LinkedIn</a>
+        <a class="btn" href="https://github.com/harsha9353-34">Connect on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 Harsha R · <a href="https://www.linkedin.com/in/harsha-engineer9353">LinkedIn</a> · <a href="https://github.com/harsha9353-34">GitHub</a></footer>
+</div>
+<script>
+(function(){var r=document.documentElement,b=document.getElementById('tog');
+function cur(){return r.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}
+function label(){b.textContent=cur()==='dark'?'Light mode':'Dark mode'}
+try{var s=localStorage.getItem('theme');if(s)r.setAttribute('data-theme',s)}catch(e){}
+label();
+b.addEventListener('click',function(){var n=cur()==='dark'?'light':'dark';r.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}label()});
+})();
+</script>
+</body>
+</html>
